@@ -21,7 +21,7 @@ form.addEventListener('submit',async event=>{
  if(!projectInputs.some(input=>input.checked)){projectError.hidden=false;projectInputs[0].focus();return;}
  projectError.hidden=true;
  const data=new FormData(form);
- const message=['Inspection request — Daniel Refundini website','Name: '+data.get('fullName'),'Phone: '+data.get('phone'),'Property address: '+[data.get('address'),data.get('city'),data.get('state'),data.get('zip')].join(', '),'Projects: '+data.getAll('project').join(', '),'Details: '+(data.get('details')||'Not provided'),'Approximate age: '+(data.get('age')||'Not provided'),'Consent to phone follow-up: Yes','Appointment not yet scheduled.'].join('\n\n');
+ const message=['Inspection request — Daniel Refundini website','Name: '+data.get('fullName'),'Phone: '+data.get('phone'),'Property address: '+data.get('address'),'Projects: '+data.getAll('project').join(', '),'Details: '+(data.get('details')||'Not provided'),'Approximate age: '+(data.get('age')||'Not provided'),'Consent to phone follow-up: Yes','Appointment not yet scheduled.'].join('\n\n');
  document.querySelector('#email-fallback').href='mailto:danielrefundini.exteriors@gmail.com?subject='+encodeURIComponent('Free inspection request')+'&body='+encodeURIComponent(message);
  const button=form.querySelector('[type=submit]');sending=true;button.disabled=true;button.textContent='Sending your request…';statusEl.textContent='';statusEl.classList.remove('error');fallback.hidden=true;
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);

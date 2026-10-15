@@ -41,16 +41,19 @@
 }
 @media(prefers-reduced-motion:reduce){.reading-progress{display:none}}
 
-/* Property address and optional, user-initiated location lookup. */
+/* Single-field address autocomplete with a scrollable, keyboard-accessible list. */
 .property-address{margin-bottom:22px}
-.property-address>label{margin-bottom:10px}
-.location-button{display:inline-flex;align-items:center;gap:10px;background:var(--soft);color:var(--navy);border:1px solid var(--line);border-radius:4px;padding:10px 15px;min-height:44px;font-size:13px;font-weight:700}
-.location-button:hover{background:#e7edf0}
-.location-button:disabled{cursor:wait;opacity:.65}
-.address-hint,.location-disclosure,.location-status,.location-credit{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}
-.location-status:empty{display:none}
-.location-status.error{color:#9b2929}
-.address-locality{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:12px;margin-top:15px}
-.address-locality label{margin-bottom:0}
-.location-credit a{text-decoration:underline}
-@media(max-width:600px){.address-locality{grid-template-columns:1fr}.location-button{width:100%;justify-content:center}}
+.property-address>label{margin-bottom:7px}
+.address-combobox{position:relative}
+.address-combobox>input{width:100%;margin:0}
+.address-suggestions{position:absolute;top:100%;left:0;right:0;z-index:12;list-style:none;padding:0;margin:0;max-height:260px;overflow-y:auto;overscroll-behavior:contain;border:1px solid #aabcc6;border-top:0;background:#fff;color:var(--ink);border-radius:0 0 4px 4px;box-shadow:0 9px 18px #112b391a}
+.address-suggestions[hidden]{display:none}
+.address-suggestions>li{margin:0;padding:12px 15px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.65;cursor:pointer;overflow-wrap:anywhere}
+.address-suggestions>li:last-child{border-bottom:0}
+.address-suggestions>li:hover,.address-suggestions>li[aria-selected="true"]{background:#edf3f6}
+.address-hint,.address-status,.address-credit{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}
+.address-status:empty{display:none}
+.address-credit{font-size:11px}
+.address-credit a{text-decoration:underline}
+.address-credit .inline-link{font-size:inherit}
+@media(max-width:600px){.address-suggestions{max-height:230px}.address-suggestions>li{padding:12px;font-size:14px}}
