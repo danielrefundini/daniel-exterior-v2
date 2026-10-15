@@ -57,3 +57,5 @@
 .address-credit a{text-decoration:underline}
 .address-credit .inline-link{font-size:inherit}
 @media(max-width:600px){.address-suggestions{max-height:230px}.address-suggestions>li{padding:12px;font-size:14px}}
+
+.address-match-note{display:block;font-size:11px;line-height:1.5;color:var(--muted);margin-top:3px}

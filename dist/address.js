@@ -10,34 +10,45 @@
  const close=()=>{list.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');active=-1};
  const clearParts=()=>{['city','state','zip'].forEach(name=>{form.elements[name].value=''})};
  const cancel=()=>{clearTimeout(debounce);controller?.abort();version++};
- const format=p=>{
-  const street=[p.housenumber,p.street].filter(Boolean).join(' ');
+ const typedNumber=query=>query.match(/^(\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)\s+/)?.[1]||'';
+ const format=(feature,query)=>{
+  const p=feature.properties||{};
+  const streetName=p.street||((p.osm_key==='highway'||p.type==='street')?p.name:'')||'';
+  if(!streetName)return null;
+  const enteredNumber=typedNumber(query);
+  if(enteredNumber&&p.housenumber&&String(p.housenumber).toLowerCase()!==enteredNumber.toLowerCase())return null;
+  const houseNumber=p.housenumber||enteredNumber;
+  const street=[houseNumber,streetName].filter(Boolean).join(' ');
   const city=p.city||p.town||p.village||p.locality||'';
   const state=({'Maryland':'MD','Virginia':'VA','District of Columbia':'DC'})[p.state]||p.state||'';
   const region=[state,p.postcode].filter(Boolean).join(' ');
-  return {label:[street,city,region,p.country||'United States of America'].filter(Boolean).join(', '),city,state,zip:p.postcode||'',street};
+  return {label:[street,city,region,p.country||'United States of America'].filter(Boolean).join(', '),city,state,zip:p.postcode||'',street,streetOnly:!p.housenumber};
+ };
+ const normalize=(results,query)=>{
+  const seen=new Set();
+  return results.map(feature=>format(feature,query)).filter(item=>item&&!seen.has(item.label)&&seen.add(item.label));
  };
  const choose=index=>{
   const item=items[index];if(!item)return;
   cancel();input.value=item.label;clearParts();
   ['city','state','zip'].forEach(name=>{form.elements[name].value=item[name]});
   close();input.dispatchEvent(new Event('change',{bubbles:true}));input.focus();
-  status.textContent='Address selected. Check the house number and add an apartment or unit if needed.';
+  status.textContent=item.streetOnly?'Street match selected. The house number is not verified; confirm it and add a unit if needed.':'Address selected. Check the house number and add an apartment or unit if needed.';
  };
  const highlight=index=>{
   active=index;
   [...list.children].forEach((option,i)=>option.setAttribute('aria-selected',String(i===index)));
   if(index>=0){const option=list.children[index];input.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'})}
  };
- const render=results=>{
-  const seen=new Set();
-  items=results.map(feature=>format(feature.properties||{})).filter(item=>item.street&&!seen.has(item.label)&&seen.add(item.label));
+ const render=(results,query)=>{
+  items=normalize(results,query);
   list.replaceChildren();active=-1;input.removeAttribute('aria-activedescendant');
   if(!items.length){close();status.textContent='No matching addresses found. You can enter the full address manually.';return}
   items.forEach((item,index)=>{
    const option=document.createElement('li');
    option.id='address-option-'+index;option.setAttribute('role','option');option.setAttribute('aria-selected','false');
    option.textContent=item.label;
+   if(item.streetOnly){const note=document.createElement('span');note.className='address-match-note';note.textContent='Street match — confirm house number';option.append(note)}
    option.addEventListener('click',()=>choose(index));
    list.append(option);
   });
@@ -47,19 +58,30 @@
  const search=async(query,requestVersion)=>{
   if(requestVersion!==version||!focused)return;
   const key=query.toLowerCase();
-  if(cache.has(key)){render(cache.get(key));return}
+  if(cache.has(key)){render(cache.get(key),query);return}
   const request=new AbortController();controller=request;
   const timeout=setTimeout(()=>request.abort(),10000);
   status.textContent='Looking for matching addresses…';
   try{
-   const params=new URLSearchParams({q:query,countrycode:'US',limit:'6',lang:'en',lat:'38.9',lon:'-77.0'});
-   const response=await fetch('https://photon.komoot.io/api/?'+params,{signal:request.signal,credentials:'omit',headers:{Accept:'application/json'}});
-   if(!response.ok)throw new Error('Address lookup failed');
-   const result=await response.json();
+   const lookup=async text=>{
+    const params=new URLSearchParams({q:text,countrycode:'US',limit:'6',lang:'en',lat:'38.9',lon:'-77.0'});
+    const response=await fetch('https://photon.komoot.io/api/?'+params,{signal:request.signal,credentials:'omit',headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('Address lookup failed');
+    const result=await response.json();
+    return Array.isArray(result.features)?result.features:[];
+   };
+   let features=await lookup(query);
    if(requestVersion!==version||!focused||input.value.trim()!==query)return;
-   const features=Array.isArray(result.features)?result.features:[];
+   // Photon may not index an individual house number even when its street exists.
+   const streetQuery=typedNumber(query)?query.replace(/^\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?\s+/,'').trim():'';
+   if(!normalize(features,query).length&&streetQuery.length>=4){
+    features=await lookup(streetQuery);
+    if(requestVersion!==version||!focused||input.value.trim()!==query)return;
+   }
    if(cache.size>=30)cache.delete(cache.keys().next().value);
-   cache.set(key,features);render(features);
+   // Don't retain misses: an incomplete result may be temporary.
+   if(normalize(features,query).length)cache.set(key,features);
+   render(features,query);
   }catch{
    if(requestVersion!==version||!focused)return;
    close();status.textContent='Address suggestions are unavailable. Please enter your full address manually.';
