@@ -14,15 +14,15 @@ projectInputs.forEach(input=>input.addEventListener('change',()=>{projectError.h
 form.elements.phone.addEventListener('input',()=>form.elements.phone.setCustomValidity(''));
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(sending)return;
- form.elements.fullName.value=form.elements.fullName.value.trim();
+ ['fullName','address','city','state','zip'].forEach(name=>{form.elements[name].value=form.elements[name].value.trim()});
  const digits=form.elements.phone.value.replace(/\D/g,'');
  form.elements.phone.setCustomValidity(digits.length>=10&&digits.length<=15?'':'Please enter your phone number with area code.');
  if(!form.reportValidity()||form.elements._gotcha.value)return;
  if(!projectInputs.some(input=>input.checked)){projectError.hidden=false;projectInputs[0].focus();return;}
  projectError.hidden=true;
  const data=new FormData(form);
- const message=['Inspection request — Daniel Refundini website','Name: '+data.get('fullName'),'Phone: '+data.get('phone'),'Property ZIP: '+data.get('zip'),'Projects: '+data.getAll('project').join(', '),'Details: '+(data.get('details')||'Not provided'),'Approximate age: '+(data.get('age')||'Not provided'),'Consent to phone follow-up: Yes','Appointment not yet scheduled.'].join('\n\n');
- document.querySelector('#email-fallback').href='mailto:danielrefundini@gmail.com?subject='+encodeURIComponent('Free inspection request')+'&body='+encodeURIComponent(message);
+ const message=['Inspection request — Daniel Refundini website','Name: '+data.get('fullName'),'Phone: '+data.get('phone'),'Property address: '+[data.get('address'),data.get('city'),data.get('state'),data.get('zip')].join(', '),'Projects: '+data.getAll('project').join(', '),'Details: '+(data.get('details')||'Not provided'),'Approximate age: '+(data.get('age')||'Not provided'),'Consent to phone follow-up: Yes','Appointment not yet scheduled.'].join('\n\n');
+ document.querySelector('#email-fallback').href='mailto:danielrefundini.exteriors@gmail.com?subject='+encodeURIComponent('Free inspection request')+'&body='+encodeURIComponent(message);
  const button=form.querySelector('[type=submit]');sending=true;button.disabled=true;button.textContent='Sending your request…';statusEl.textContent='';statusEl.classList.remove('error');fallback.hidden=true;
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);
  try{

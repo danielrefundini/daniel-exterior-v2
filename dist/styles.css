@@ -40,3 +40,17 @@
  @keyframes menu-reveal{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
 }
 @media(prefers-reduced-motion:reduce){.reading-progress{display:none}}
+
+/* Property address and optional, user-initiated location lookup. */
+.property-address{margin-bottom:22px}
+.property-address>label{margin-bottom:10px}
+.location-button{display:inline-flex;align-items:center;gap:10px;background:var(--soft);color:var(--navy);border:1px solid var(--line);border-radius:4px;padding:10px 15px;min-height:44px;font-size:13px;font-weight:700}
+.location-button:hover{background:#e7edf0}
+.location-button:disabled{cursor:wait;opacity:.65}
+.address-hint,.location-disclosure,.location-status,.location-credit{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}
+.location-status:empty{display:none}
+.location-status.error{color:#9b2929}
+.address-locality{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:12px;margin-top:15px}
+.address-locality label{margin-bottom:0}
+.location-credit a{text-decoration:underline}
+@media(max-width:600px){.address-locality{grid-template-columns:1fr}.location-button{width:100%;justify-content:center}}
