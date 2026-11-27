@@ -1,24 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import content from "@/content.json";
+import { Analytics } from "@/site/analytics";
+import { GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION, SITE, SITE_URL } from "@/site/config";
 import { siteFonts } from "@/site/fonts";
 import "./globals.css";
 
-const URL = "https://www.danielrefundini.com";
-
+// Defaults for every page. Each page sets its own title, description, canonical, Open Graph and Twitter card.
 export const metadata: Metadata = {
-  metadataBase: new globalThis.URL(URL),
+  metadataBase: new URL(SITE_URL),
   title: content.seo.title,
   description: content.seo.description,
-  alternates: { canonical: "/" },
-  openGraph: { title: content.seo.title, description: content.seo.description, url: URL, type: "website" },
+  applicationName: SITE.name,
+  // Search Console: set GOOGLE_SITE_VERIFICATION to the code Google gives you (see README). Empty means no tag.
+  ...(GOOGLE_SITE_VERIFICATION ? { verification: { google: GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#112b39" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={siteFonts}>{children}</body>
+      <body className={siteFonts}>
+        {children}
+        <Analytics id={GA_MEASUREMENT_ID} />
+      </body>
     </html>
   );
 }

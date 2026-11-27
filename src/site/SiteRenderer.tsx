@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from "next/image";
+import Link from "next/link";
 import {
   ArrowUpRight,
   Award,
@@ -50,7 +51,7 @@ export const ICON_NAMES = Object.keys(ICONS);
 
 const FONT_VAR = { inter: "var(--font-inter)", poppins: "var(--font-poppins)", playfair: "var(--font-playfair)", manrope: "var(--font-manrope)", dmsans: "var(--font-dmsans)" };
 
-function themeVars(t: Theme): React.CSSProperties {
+export function themeVars(t: Theme): React.CSSProperties {
   const c = t.colors;
   return {
     "--s-bg": c.bg,
@@ -115,7 +116,7 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 
 function Stars({ size = 16 }: { size?: number }) {
   return (
-    <span className="s-stars" aria-label="5 stars">
+    <span className="s-stars" role="img" aria-label="5 stars">
       {Array.from({ length: 5 }, (_, i) => (
         <Star key={i} size={size} fill="currentColor" strokeWidth={0} />
       ))}
@@ -164,15 +165,15 @@ function SectionView({ s }: { s: Section }) {
         <StickyHeader>
           <div className="s-container s-header-row">
             {s.logo ? (
-              <a href="#" className="s-brand-logo">
+              <Link href="/" className="s-brand-logo">
                 <SiteImage src={s.logo.src} alt={s.logo.alt} pos={s.logo.position} zoom={s.logo.zoom} width={44} height={37} priority />
                 <span>
                   <strong>{s.brand}</strong>
                   {s.tagline && <small>{s.tagline}</small>}
                 </span>
-              </a>
+              </Link>
             ) : (
-              <a href="#" className="s-brand">{s.brand}</a>
+              <Link href="/" className="s-brand">{s.brand}</Link>
             )}
             <nav className="s-nav">
               {s.nav.map((n) => (
@@ -330,6 +331,7 @@ function SectionView({ s }: { s: Section }) {
                           {it.detail && <p className="s-card-detail">{it.detail}</p>}
                           {it.price && <p className="s-price">{it.price}</p>}
                           {it.cta && <a href={it.cta.href} className="s-card-link">{it.cta.label} <ArrowUpRight size={15} /></a>}
+                          {it.more && <a href={it.more.href} className="s-card-more">{it.more.label}</a>}
                         </div>
                       </article>
                     </Tilt>
@@ -341,6 +343,11 @@ function SectionView({ s }: { s: Section }) {
               <Reveal>
                 <p className="s-cards-note">{s.note}</p>
               </Reveal>
+            )}
+            {s.links && s.links.length > 0 && (
+              <ul className="s-pill-links">
+                {s.links.map((l) => <li key={l.href}><a href={l.href}>{l.label}</a></li>)}
+              </ul>
             )}
           </div>
         </section>
@@ -366,13 +373,15 @@ function SectionView({ s }: { s: Section }) {
             <Heading eyebrow={s.eyebrow} title={s.title} />
             <ol className="s-steps" style={{ "--cols": Math.min(s.items.length, 4) } as React.CSSProperties}>
               {s.items.map((it, i) => (
-                <Reveal key={it.title} delay={i * 100}>
-                  <li className="s-step">
-                    <span className="s-step-n">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="s-h3">{it.title}</h3>
-                    <p className="s-muted">{it.text}</p>
-                  </li>
-                </Reveal>
+                <li key={it.title} className="s-step-item">
+                  <Reveal delay={i * 100}>
+                    <div className="s-step">
+                      <span className="s-step-n">{String(i + 1).padStart(2, "0")}</span>
+                      <h3 className="s-h3">{it.title}</h3>
+                      <p className="s-muted">{it.text}</p>
+                    </div>
+                  </Reveal>
+                </li>
               ))}
             </ol>
           </div>
@@ -556,7 +565,7 @@ function SectionView({ s }: { s: Section }) {
             <div>
               <p className="s-footer-title">Contact</p>
               {s.address && <p className="s-footer-line"><MapPin size={15} /> {s.address}</p>}
-              <p className="s-footer-line"><Phone size={15} /> <a href={tel(s.phone)}>{s.phone}</a></p>
+              {s.phone && <p className="s-footer-line"><Phone size={15} /> <a href={tel(s.phone)}>{s.phone}</a></p>}
               {s.email && (
                 <p className="s-footer-line">
                   <Mail size={15} /> {s.email.includes("@") ? <a href={`mailto:${s.email}`}>{s.email}</a> : s.email}
@@ -574,10 +583,19 @@ function SectionView({ s }: { s: Section }) {
                 {s.hours.map((h) => <p key={h} className="s-footer-line">{h}</p>)}
               </div>
             )}
+            {s.services && s.services.length > 0 && (
+              <nav aria-label="Services">
+                <p className="s-footer-title">Services</p>
+                <ul className="s-footer-links">
+                  {s.services.map((l) => <li key={l.href}><a href={l.href}>{l.label}</a></li>)}
+                </ul>
+              </nav>
+            )}
             {s.areas && (
               <div>
                 <p className="s-footer-title">Service areas</p>
                 <p className="s-footer-muted">{s.areas.join(" · ")}</p>
+                {s.areasLink && <p className="s-footer-muted"><a href={s.areasLink.href}>{s.areasLink.label} service area</a></p>}
               </div>
             )}
             {(s.licenses || s.links?.length) && (
@@ -592,7 +610,12 @@ function SectionView({ s }: { s: Section }) {
           </div>
           <div className="s-container s-footer-bottom">
             <span>© {new Date().getFullYear()} {s.brand}. All rights reserved.</span>
-            <span>{s.legal ?? "Privacy policy · Terms"}</span>
+            <span>{s.legal ?? ""}</span>
+            {s.legalLinks && s.legalLinks.length > 0 && (
+              <span className="s-footer-legal">
+                {s.legalLinks.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
+              </span>
+            )}
           </div>
         </footer>
       );
@@ -978,12 +1001,23 @@ function SectionView({ s }: { s: Section }) {
 
     case "mobileBar":
       return (
-        <div className="s-mobile-bar">
-          <a href={tel(s.phone)} className="s-btn s-btn-outline-light"><Phone size={16} /> Call</a>
+        <div className={s.phone ? "s-mobile-bar" : "s-mobile-bar is-single"}>
+          {s.phone && <a href={tel(s.phone)} className="s-btn s-btn-outline-light"><Phone size={16} /> Call</a>}
           <a href={s.cta.href} className="s-btn s-btn-primary">{s.cta.label}</a>
         </div>
       );
   }
+}
+
+/** Inner pages: the site's own header and footer around custom page content. */
+export function SiteFrame({ theme, top, bottom, children }: { theme: Theme; top: Section[]; bottom: Section[]; children: React.ReactNode }) {
+  return (
+    <div className="s-site" style={themeVars(theme)}>
+      {top.map((s, i) => <SectionView key={`t${i}`} s={s} />)}
+      <main>{children}</main>
+      {bottom.map((s, i) => <SectionView key={`b${i}`} s={s} />)}
+    </div>
+  );
 }
 
 export function SiteRenderer({ template }: { template: SiteTemplate }) {

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { INITIAL, NATIONAL_SOURCE, POPULAR, PROJECTS, roofAreaOf, sidingAreaOf, REASONS, TIERS, TIMELINES, estimate, money, type Answers, type ProjectKey } from "./pricing";
 
+import { trackLead, utmParams } from "../analytics";
 import { readAttribution, useRuntime } from "../motion";
 import { AddressInput } from "./AddressInput";
 import "./estimator.css";
@@ -149,6 +150,8 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
     for (const [k, v] of Object.entries(fields)) form.append(k, v);
     form.append("email", contact.email.trim()); // vira o "responder para" do e-mail
     form.append("_subject", subject);
+    // Where the visitor came from (utm_source, utm_medium, ...), so the email can be tied back to a campaign.
+    for (const [k, v] of Object.entries(utmParams())) form.append(k, v);
     if (gotcha) form.append("_gotcha", gotcha);
     const email = formspree
       ? fetch(formspree, { method: "POST", body: form, headers: { Accept: "application/json" } }).then((r) => r.ok)
@@ -187,7 +190,8 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
     // Envia para o Formspree (e-mail para o Daniel) e para o CRM (vira contato). Basta um dar certo.
     const [emailOk, crmOk] = await sendRequest();
     setSending(false);
-    if (!emailOk && !crmOk) return setError("Something went wrong. Please try again or call Daniel directly.");
+    if (!emailOk && !crmOk) return setError("Something went wrong. Please try again, or email Daniel at danielrefundini.exteriors@gmail.com.");
+    trackLead({ project: a.project ?? undefined, request: next });
     go("done");
   }
 
@@ -216,7 +220,7 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
       {step === "project" && (
         <>
           <h3 className="d-est-q">What would you like to price?</h3>
-          <p className="d-est-sub">See a price range for your home before anyone calls you.</p>
+          <p className="d-est-sub">See a price range for your home in about a minute.</p>
           <div className="d-est-tiles">
             {PROJECTS.map((p) => {
               const Icon = ICONS[p.key];
@@ -406,7 +410,7 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
       {step === "schedule" && (
         <>
           <h3 className="d-est-q">{next === "inspection" ? "When can Daniel come by?" : "When should Daniel call?"}</h3>
-          <p className="d-est-sub">Pick a time that works.</p>
+          <p className="d-est-sub">Pick a time that works. Daniel will confirm it with you.</p>
           <div className="d-est-days">
             {days.map((d, i) => (
               <button type="button" key={d.toISOString()} className={`d-est-day ${day === i ? "on" : ""}`} onClick={() => { setDay(i); setTime(""); }}>
@@ -445,7 +449,7 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
           </div>
           {error && <p className="d-form-error" role="alert">{error}</p>}
           <button type="button" className="s-btn s-btn-primary s-btn-block s-btn-lg" onClick={submitContact} disabled={sending}>
-            {sending ? "Sending…" : next === "inspection" ? "Confirm my free inspection" : "Confirm my call"} <ArrowRight size={17} />
+            {sending ? "Sending…" : next === "inspection" ? "Request my free inspection" : "Request my call"} <ArrowRight size={17} />
           </button>
           <p className="d-est-lock"><ShieldCheck size={13} /> Your details go only to Daniel. Never sold or shared.</p>
         </>
@@ -454,9 +458,9 @@ export function Estimator({ formspree, forwardTo }: { formspree?: string; forwar
       {step === "done" && (
         <div className="d-est-done">
           <span className="d-est-done-mark"><Check size={26} /></span>
-          <h3 className="d-est-q">{next === "inspection" ? "Your inspection is booked." : "Your call is booked."}</h3>
+          <h3 className="d-est-q">{next === "inspection" ? "Your inspection request is in." : "Your call request is in."}</h3>
           <p className="d-est-sub">
-            {`Thanks, ${contact.name.split(" ")[0]}. Daniel will text you to confirm.`}
+            {`Thanks, ${contact.name.split(" ")[0]}. Daniel will reach out to confirm a time.`}
           </p>
           <div className="d-est-ticket">
             {slot && <p><CalendarCheck size={16} /> <strong>{slot}</strong></p>}
