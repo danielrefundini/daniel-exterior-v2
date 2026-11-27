@@ -1,0 +1,638 @@
+{
+ "seo": {
+  "title": "Windows, Roofing, Siding & Doors in the DMV | Daniel Refundini",
+  "description": "Free exterior inspection and estimate in Maryland, Washington, DC and Northern Virginia. Windows, roofing, siding and doors with Daniel Refundini, Remodeling Consultant at Presidential Exteriors."
+ },
+ "chat": {
+  "agentId": "3d1f2e85-4c2b-4d97-92aa-e0f2b914496e"
+ },
+ "pages": [
+  {
+   "name": "Home",
+   "slug": "",
+   "sections": [
+    {
+     "text": "Maryland · Washington, DC · Northern Virginia",
+     "type": "topbar",
+     "phone": "(571) 279-8000"
+    },
+    {
+     "cta": {
+      "href": "#inspection",
+      "label": "Free inspection"
+     },
+     "nav": [
+      {
+       "href": "#services",
+       "label": "Services"
+      },
+      {
+       "href": "#certifications",
+       "label": "Certifications"
+      },
+      {
+       "href": "#work",
+       "label": "Our work"
+      },
+      {
+       "href": "#daniel",
+       "label": "Meet Daniel"
+      },
+      {
+       "href": "#reviews",
+       "label": "Reviews"
+      },
+      {
+       "href": "#faq",
+       "label": "FAQs"
+      }
+     ],
+     "logo": {
+      "alt": "Presidential Exteriors logo",
+      "src": "/images/presidential-logo.png"
+     },
+     "type": "header",
+     "brand": "Daniel Refundini",
+     "phone": "(571) 279-8000",
+     "tagline": "Presidential Exteriors"
+    },
+    {
+     "type": "hero",
+     "chips": [
+      {
+       "text": "Certified roofing contractor",
+       "title": "GAF Master Elite®"
+      },
+      {
+       "text": "Siding contractor",
+       "title": "James Hardie Elite Preferred"
+      },
+      {
+       "text": "Google rating",
+       "title": "4.8 ★★★★★"
+      }
+     ],
+     "image": {
+      "alt": "Blue colonial home with white trim and a front porch",
+      "src": "https://images.unsplash.com/photo-1625603736199-775425d2890a?auto=format&fit=crop&w=1600&q=80"
+     },
+     "title": "A better exterior. A home you feel good about.",
+     "badges": [
+      "GAF Master Elite® team",
+      "James Hardie Elite Preferred contractor",
+      "Financing options to discuss"
+     ],
+     "eyebrow": "Your home. A clear plan for what’s next.",
+     "primary": {
+      "href": "#inspection",
+      "label": "Request my free inspection"
+     },
+     "variant": "split-image",
+     "services": [
+      "Windows",
+      "Roofing",
+      "Siding",
+      "Doors"
+     ],
+     "subtitle": "Leaks, drafts, or an exterior ready for a change? I’ll help you understand your options and plan the right improvements for your home in the DMV.",
+     "highlight": "A home you feel good about.",
+     "secondary": {
+      "href": "tel:+15712798000",
+      "label": "Call (571) 279-8000"
+     }
+    },
+    {
+     "type": "stats",
+     "items": [
+      {
+       "label": "Years in construction",
+       "value": 10,
+       "suffix": "+",
+       "decimals": 0
+      },
+      {
+       "label": "Google rating",
+       "value": 4.8,
+       "suffix": "★",
+       "decimals": 1
+      },
+      {
+       "label": "Angi rating",
+       "value": 4.9,
+       "suffix": "★",
+       "decimals": 1
+      },
+      {
+       "label": "Facebook rating",
+       "value": 5,
+       "suffix": "★",
+       "decimals": 1
+      }
+     ]
+    },
+    {
+     "type": "marquee",
+     "items": [
+      "Windows",
+      "Roofing",
+      "Siding",
+      "Doors",
+      "Gutters",
+      "Attic insulation",
+      "Roofline trim",
+      "Decks & porticos",
+      "Maryland",
+      "Washington, DC",
+      "Northern Virginia"
+     ]
+    },
+    {
+     "type": "credentials",
+     "items": [
+      {
+       "href": "https://www.gaf.com/en-us/roofing-contractors/residential/usa/md/rockville/presidential-exteriors-1108926",
+       "text": "Certified roofing contractor",
+       "title": "GAF Master Elite®"
+      },
+      {
+       "href": "https://www.gaf.com/en-us/roofing-contractors/residential/usa/md/rockville/presidential-exteriors-1108926",
+       "text": "GAF award recipient",
+       "title": "President’s Club"
+      },
+      {
+       "href": "https://www.jameshardie.com/find-a-contractor/results/presidential-exteriors-rockville/",
+       "text": "Siding contractor",
+       "title": "James Hardie Elite Preferred"
+      }
+     ],
+     "title": "Personal guidance.\nAn established team behind it."
+    },
+    {
+     "note": "Thinking beyond the basics? Ask about gutters, attic insulation, roofline trim, decks and porticos.",
+     "type": "services",
+     "items": [
+      {
+       "cta": {
+        "href": "#inspection",
+        "label": "Request a window inspection"
+       },
+       "text": "Drafty rooms, fogged glass, or windows that won’t open easily? Let’s take a closer look.",
+       "image": {
+        "alt": "Brick colonial home with white sash windows",
+        "src": "https://images.unsplash.com/photo-1607900840367-a83dcd63296d?auto=format&fit=crop&w=900&q=80"
+       },
+       "label": "01 / Windows",
+       "title": "Keep the view. Lose the draft.",
+       "detail": "Compare Vytex and ProVia windows, glass packages, operation and installation details."
+      },
+      {
+       "cta": {
+        "href": "#inspection",
+        "label": "Request a roof inspection"
+       },
+       "text": "Missing shingles or a ceiling stain? Understand the roof’s condition before choosing your next step.",
+       "image": {
+        "alt": "Homes with new architectural shingle roofs",
+        "src": "https://images.unsplash.com/photo-1710139323182-69622cad5c3b?auto=format&fit=crop&w=900&q=80"
+       },
+       "label": "02 / Roofing",
+       "title": "Confidence starts overhead.",
+       "detail": "GAF Timberline HDZ and UHDZ, plus the full roof assembly, ventilation and warranty."
+      },
+      {
+       "cta": {
+        "href": "#inspection",
+        "label": "Request a siding inspection"
+       },
+       "text": "Worn siding, repeated maintenance, or a style you’ve outgrown? Explore the possibilities.",
+       "image": {
+        "alt": "Shingle-sided home with a covered porch",
+        "src": "https://images.unsplash.com/photo-1584738766473-61c083514bf4?auto=format&fit=crop&w=900&q=80"
+       },
+       "label": "03 / Siding",
+       "title": "A fresh look. A considered upgrade.",
+       "detail": "Mastic vinyl and insulated siding or James Hardie fiber cement, compared side by side."
+      },
+      {
+       "cta": {
+        "href": "#inspection",
+        "label": "Request a door inspection"
+       },
+       "text": "Make your entry feel right again, with a focus on fit, function, and a finish you love.",
+       "image": {
+        "alt": "Covered porch with a classic entry door",
+        "src": "https://images.unsplash.com/photo-1601041597271-71988152f98b?auto=format&fit=crop&w=900&q=80"
+       },
+       "label": "04 / Doors",
+       "title": "A warmer welcome starts at the door.",
+       "detail": "ProVia entry and patio doors: material, glass, hardware and the right configuration."
+      }
+     ],
+     "title": "What could feel better about your home?",
+     "eyebrow": "Start with what you’re noticing",
+     "subtitle": "You don’t need to know which product to choose. Tell me what you’re noticing. We’ll work through the solution together."
+    },
+    {
+     "link": {
+      "href": "https://presidentialexteriors.com/about-us/certifications/",
+      "label": "Verify them on the company site"
+     },
+     "note": "Certifications and awards held by Presidential Exteriors.",
+     "type": "certifications",
+     "stats": [
+      {
+       "label": "Projects completed",
+       "value": 26000,
+       "suffix": "+"
+      },
+      {
+       "label": "GAF Master Elite roofers",
+       "value": 2,
+       "prefix": "Top ",
+       "suffix": "%"
+      },
+      {
+       "label": "Industry certifications",
+       "value": 10,
+       "suffix": ""
+      },
+      {
+       "label": "BBB accredited rating",
+       "value": 0,
+       "prefix": "A+"
+      }
+     ],
+     "title": "Credentials you can check for yourself.",
+     "awards": [
+      {
+       "name": "BBB A+",
+       "text": "Accredited business"
+      },
+      {
+       "name": "Angi Super Service Award",
+       "text": "Every year since the company began"
+      },
+      {
+       "name": "Nextdoor Neighborhood Fave",
+       "text": "Voted by local homeowners"
+      },
+      {
+       "name": "Qualified Remodeler Top 500",
+       "text": "#67 in 2024 and 2025"
+      },
+      {
+       "name": "WBJ Fastest Growing",
+       "text": "#20 in 2023"
+      }
+     ],
+     "groups": [
+      {
+       "icon": "home",
+       "items": [
+        {
+         "tag": "Top 2%",
+         "name": "GAF Master Elite®",
+         "text": "Fewer than 2% of roofers qualify. Authorizes the Golden Pledge™ warranty, GAF’s most comprehensive coverage."
+        },
+        {
+         "tag": "Award",
+         "name": "GAF President’s Club",
+         "text": "The highest honor GAF gives its Master Elite contractors, for quality, professionalism and customer satisfaction."
+        },
+        {
+         "tag": "Yearly",
+         "name": "GAF CARE training",
+         "text": "The team completes GAF’s CARE training every year to stay current on products and installation methods."
+        }
+       ],
+       "title": "Roofing"
+      },
+      {
+       "icon": "layers",
+       "items": [
+        {
+         "tag": "Top 2%",
+         "name": "James Hardie Elite Preferred",
+         "text": "James Hardie’s highest contractor tier, awarded to fewer than 2% of contractors."
+        },
+        {
+         "tag": "Highest tier",
+         "name": "Mastic Elite Pro",
+         "text": "The highest designation from Ply Gem, the #1 maker of vinyl siding in North America."
+        },
+        {
+         "tag": "Certified",
+         "name": "PEPA Certified",
+         "text": "Certified and trained to install vinyl siding that looks great and performs for years."
+        }
+       ],
+       "title": "Siding"
+      },
+      {
+       "icon": "door",
+       "items": [
+        {
+         "tag": "Certified",
+         "name": "Vytex Certified",
+         "text": "The installation team is certified by the window manufacturer."
+        },
+        {
+         "tag": "Trained",
+         "name": "AAMA-trained installers",
+         "text": "Installers trained and certified through the American Architectural Manufacturers Association."
+        },
+        {
+         "tag": "Energy",
+         "name": "NFRC-certified products",
+         "text": "Every window and door offered is rated for energy performance by the National Fenestration Rating Council."
+        }
+       ],
+       "title": "Windows & doors"
+      }
+     ],
+     "eyebrow": "Certified at every layer of your home",
+     "subtitle": "Manufacturer certifications mean trained crews, stronger warranty options and a company that is accountable for the work.",
+     "highlight": "check for yourself."
+    },
+    {
+     "type": "beforeAfter",
+     "after": {
+      "alt": "New architectural shingle roof",
+      "src": "https://images.unsplash.com/photo-1710139323182-69622cad5c3b?auto=format&fit=crop&w=1600&q=80"
+     },
+     "title": "Drag to compare before and after",
+     "before": {
+      "alt": "Worn, damaged roof shingles",
+      "src": "https://images.unsplash.com/photo-1516357456231-cfb2dcb7eb3d?auto=format&fit=crop&w=1600&q=80"
+     },
+     "caption": "Illustrative sample photos.",
+     "eyebrow": "See the difference",
+     "subtitle": "From worn, leaking shingles to a roof built to protect your home for decades."
+    },
+    {
+     "link": {
+      "href": "https://presidentialexteriors.com/featured-projects/",
+      "label": "Explore company projects"
+     },
+     "note": "Project photography © Presidential Exteriors.",
+     "type": "projects",
+     "items": [
+      {
+       "href": "https://presidentialexteriors.com/premium-roof-replacement-gaithersburg-brava-synthetic-cedar-shake/",
+       "text": "Brava synthetic cedar shake roof replacement",
+       "image": {
+        "alt": "Aerial view of a synthetic cedar shake roof in Gaithersburg, MD",
+        "src": "/images/roof.webp"
+       },
+       "title": "A new roof, beautifully considered.",
+       "location": "Gaithersburg, Maryland"
+      },
+      {
+       "href": "https://presidentialexteriors.com/featured-projects/complete-exterior-update-for-single-family-home-columbia-md/",
+       "text": "Siding, windows, sliding door, gutters and trim",
+       "image": {
+        "alt": "New siding on a home in Columbia, MD",
+        "src": "/images/siding.webp"
+       },
+       "title": "A whole-home exterior refresh.",
+       "location": "Columbia, Maryland"
+      }
+     ],
+     "title": "Real homes. Real exterior improvements.",
+     "eyebrow": "The work behind the words"
+    },
+    {
+     "cta": {
+      "href": "#inspection",
+      "label": "Let’s talk about your home"
+     },
+     "text": "A useful estimate should help you understand the work, not leave you guessing what’s included.",
+     "type": "split",
+     "image": {
+      "alt": "Craftsman home with a new roof and porch",
+      "src": "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=1200&q=80"
+     },
+     "title": "The right materials. The details that matter.",
+     "points": [
+      {
+       "text": "Presidential Exteriors brings manufacturer credentials you can check. We’ll discuss the installation team and how your project will be handled.",
+       "title": "Know who’s behind the work."
+      },
+      {
+       "text": "Materials, preparation, installation and finishing details belong in the conversation, not just the price at the bottom.",
+       "title": "Compare the complete scope."
+      },
+      {
+       "text": "Review the coverage for your selected products and installation, including terms, exclusions and transferability.",
+       "title": "Understand your warranty."
+      }
+     ],
+     "eyebrow": "Look beyond the product"
+    },
+    {
+     "id": "daniel",
+     "cta": {
+      "href": "tel:+15712798000",
+      "label": "Call Daniel"
+     },
+     "dark": true,
+     "text": "With 10+ years in construction, I help homeowners connect what they’re noticing with the improvements their home may need. I’ll listen, explain your options in plain language, and help you compare materials and scope, so you understand the recommendation before making a decision.",
+     "type": "split",
+     "image": {
+      "alt": "Illustrated portrait of Daniel Refundini",
+      "src": "/images/05a40ddf-716c-4f96-b806-b008d8aed937.png",
+      "zoom": 100,
+      "shape": "square",
+      "position": "51% 13%"
+     },
+     "title": "I’m Daniel. Let’s plan the right next step.",
+     "eyebrow": "Meet your consultant",
+     "instagram": "https://www.instagram.com/daniel.exteriors/",
+     "secondary": {
+      "href": "mailto:danielrefundini.exteriors@gmail.com",
+      "label": "Email Daniel"
+     },
+     "signature": "Daniel Refundini · Remodeling Consultant, Presidential Exteriors"
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "text": "Share your contact details, property address, and the projects you have in mind.",
+       "title": "Tell me about your home"
+      },
+      {
+       "text": "We’ll connect to confirm your project details, appointment time, and what you’d like us to look at.",
+       "title": "We arrange an inspection"
+      },
+      {
+       "text": "Review the findings, recommended work, and an estimate. Ask the questions that matter to you.",
+       "title": "You understand your options"
+      }
+     ],
+     "title": "From a concern to a clear next step.",
+     "eyebrow": "A simple way to get started"
+    },
+    {
+     "link": {
+      "href": "https://www.google.com/search?q=presidential+exteriors+google+reviews",
+      "label": "Read company reviews"
+     },
+     "note": "Selected excerpts about Presidential Exteriors. Individual experiences vary.",
+     "type": "ratings",
+     "title": "A team people can tell you about.",
+     "eyebrow": "From homeowners",
+     "ratings": [
+      {
+       "score": "4.8",
+       "platform": "Google"
+      },
+      {
+       "score": "5.0",
+       "platform": "Facebook"
+      },
+      {
+       "score": "4.9",
+       "platform": "Angi"
+      },
+      {
+       "score": "4.8",
+       "platform": "HomeAdvisor"
+      },
+      {
+       "label": "Accredited business",
+       "score": "A+",
+       "platform": "Better Business Bureau"
+      }
+     ],
+     "reviews": [
+      {
+       "name": "A Dille",
+       "text": "The team worked well together and knew what they were doing.",
+       "detail": "Sliding patio door replacement",
+       "source": "Google review"
+      },
+      {
+       "name": "Timothy Meyers",
+       "text": "Smooth process start to finish.",
+       "detail": "Patio door project",
+       "source": "Google review"
+      },
+      {
+       "name": "David Heller",
+       "text": "Very professional and knowledgeable sales and install crew.",
+       "detail": "Siding installation",
+       "source": "James Hardie directory"
+      }
+     ]
+    },
+    {
+     "type": "faq",
+     "items": [
+      {
+       "a": "Yes. You can request a free exterior inspection and estimate. We’ll confirm your project details and arrange a time after you submit the request.",
+       "q": "Is the inspection and estimate free?"
+      },
+      {
+       "a": "Daniel serves homeowners in Maryland, Washington, DC, and Northern Virginia. Share your ZIP code so we can confirm availability for your location and project.",
+       "q": "Where do you work?"
+      },
+      {
+       "a": "We’ll discuss your concerns, inspect the relevant areas, and review findings and potential solutions. The time needed depends on the scope; we’ll clarify that when arranging your visit.",
+       "q": "What happens during the appointment?"
+      },
+      {
+       "a": "No. Tell me what you’re noticing and what you’d like to improve. We can compare materials, appearance, maintenance, and budget during the consultation.",
+       "q": "Do I need to know which products I want?"
+      },
+      {
+       "a": "Your project is through Presidential Exteriors. Ask Daniel to walk through the assigned installation team, relevant training, and how your project will be managed before you commit.",
+       "q": "Who will install the work?"
+      },
+      {
+       "a": "Yes. Ask about the options available for your project. Approval, rates, and terms depend on the program and application.",
+       "q": "Can we discuss financing?"
+      },
+      {
+       "a": "Coverage depends on the selected products, installation, and program. We’ll review the applicable written material and labor terms, exclusions, and transferability with your proposal.",
+       "q": "What warranty comes with my project?"
+      },
+      {
+       "a": "It sends an inspection request to Daniel. Your appointment is confirmed only after we connect and agree on a time.",
+       "q": "Does this form book an appointment?"
+      }
+     ],
+     "title": "Good questions. Clear answers."
+    },
+    {
+     "text": "Answer a few quick questions, see what your project usually costs in the DMV, then book a free inspection for your exact price.",
+     "type": "estimator",
+     "email": "danielrefundini.exteriors@gmail.com",
+     "phone": "(571) 279-8000",
+     "title": "Know your price range before anyone calls.",
+     "bullets": [
+      "See a price range in about 60 seconds",
+      "Book a free inspection or a quick call",
+      "Exact written price, no pressure"
+     ],
+     "eyebrow": "Let’s start with your home",
+     "formspree": "https://formspree.io/f/xyezpnza",
+     "forwardTo": "https://vocero-crm-nine.vercel.app/api/webhooks/website/adff05dceb5764c30e7cf8a5a73b2c073882936d332e2257"
+    },
+    {
+     "type": "footer",
+     "about": "Remodeling Consultant at Presidential Exteriors. Windows, roofing, siding and doors for homeowners in the DMV.",
+     "areas": [
+      "Maryland",
+      "Washington, DC",
+      "Northern Virginia"
+     ],
+     "brand": "Daniel Refundini",
+     "email": "danielrefundini.exteriors@gmail.com",
+     "legal": "Product availability, features and warranties vary by configuration and project. Manufacturer trademarks belong to their respective owners.",
+     "links": [
+      {
+       "href": "https://presidentialexteriors.com/",
+       "label": "Presidential Exteriors"
+      }
+     ],
+     "phone": "(571) 279-8000",
+     "licenses": "MD Home Improvement #133021 · VA Class A #2705158030",
+     "instagram": "https://www.instagram.com/daniel.exteriors/"
+    },
+    {
+     "cta": {
+      "href": "#inspection",
+      "label": "Free inspection"
+     },
+     "type": "mobileBar",
+     "phone": "(571) 279-8000"
+    }
+   ]
+  }
+ ],
+ "theme": {
+  "id": "presidential",
+  "name": "Presidential",
+  "fonts": {
+   "body": "dmsans",
+   "heading": "manrope"
+  },
+  "colors": {
+   "bg": "#ffffff",
+   "dark": "#112b39",
+   "text": "#112b39",
+   "muted": "#55666f",
+   "accent": "#a07a3c",
+   "onDark": "#f2f5f6",
+   "primary": "#dfb878",
+   "surface": "#f2f5f6",
+   "onPrimary": "#112b39",
+   "accentOnDark": "#dfb878"
+  },
+  "radius": "10px",
+  "buttonRadius": "6px",
+  "headingWeight": 700
+ },
+ "template": "custom"
+}
