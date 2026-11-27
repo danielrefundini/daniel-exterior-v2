@@ -1,0 +1,7 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "seo/foundation-and-service-pages": false
+    }
+  }
+}

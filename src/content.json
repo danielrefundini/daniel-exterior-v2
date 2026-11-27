@@ -1,7 +1,7 @@
 {
  "seo": {
   "title": "Windows, Roofing, Siding & Doors in the DMV | Daniel Refundini",
-  "description": "Free exterior inspection and estimate in Maryland, Washington, DC and Northern Virginia. Windows, roofing, siding and doors with Daniel Refundini, Remodeling Consultant at Presidential Exteriors."
+  "description": "Free exterior inspection and estimate in Maryland, Washington, DC and Northern Virginia. Plan windows, roofing, siding and doors with Daniel Refundini."
  },
  "chat": {
   "agentId": "3d1f2e85-4c2b-4d97-92aa-e0f2b914496e"
@@ -13,8 +13,7 @@
    "sections": [
     {
      "text": "Maryland · Washington, DC · Northern Virginia",
-     "type": "topbar",
-     "phone": "(571) 279-8000"
+     "type": "topbar"
     },
     {
      "cta": {
@@ -23,27 +22,27 @@
      },
      "nav": [
       {
-       "href": "#services",
+       "href": "/#services",
        "label": "Services"
       },
       {
-       "href": "#certifications",
+       "href": "/#certifications",
        "label": "Certifications"
       },
       {
-       "href": "#work",
+       "href": "/#work",
        "label": "Our work"
       },
       {
-       "href": "#daniel",
+       "href": "/#daniel",
        "label": "Meet Daniel"
       },
       {
-       "href": "#reviews",
+       "href": "/#reviews",
        "label": "Reviews"
       },
       {
-       "href": "#faq",
+       "href": "/#faq",
        "label": "FAQs"
       }
      ],
@@ -53,7 +52,6 @@
      },
      "type": "header",
      "brand": "Daniel Refundini",
-     "phone": "(571) 279-8000",
      "tagline": "Presidential Exteriors"
     },
     {
@@ -97,8 +95,8 @@
      "subtitle": "Leaks, drafts, or an exterior ready for a change? I’ll help you understand your options and plan the right improvements for your home in the DMV.",
      "highlight": "A home you feel good about.",
      "secondary": {
-      "href": "tel:+15712798000",
-      "label": "Call (571) 279-8000"
+      "href": "#services",
+      "label": "Explore services"
      }
     },
     {
@@ -183,7 +181,11 @@
        },
        "label": "01 / Windows",
        "title": "Keep the view. Lose the draft.",
-       "detail": "Compare Vytex and ProVia windows, glass packages, operation and installation details."
+       "detail": "Compare Vytex and ProVia windows, glass packages, operation and installation details.",
+       "more": {
+        "href": "/windows",
+        "label": "More about windows"
+       }
       },
       {
        "cta": {
@@ -197,7 +199,11 @@
        },
        "label": "02 / Roofing",
        "title": "Confidence starts overhead.",
-       "detail": "GAF Timberline HDZ and UHDZ, plus the full roof assembly, ventilation and warranty."
+       "detail": "GAF Timberline HDZ and UHDZ, plus the full roof assembly, ventilation and warranty.",
+       "more": {
+        "href": "/roofing",
+        "label": "More about roofing"
+       }
       },
       {
        "cta": {
@@ -211,7 +217,11 @@
        },
        "label": "03 / Siding",
        "title": "A fresh look. A considered upgrade.",
-       "detail": "Mastic vinyl and insulated siding or James Hardie fiber cement, compared side by side."
+       "detail": "Mastic vinyl and insulated siding or James Hardie fiber cement, compared side by side.",
+       "more": {
+        "href": "/siding",
+        "label": "More about siding"
+       }
       },
       {
        "cta": {
@@ -225,12 +235,34 @@
        },
        "label": "04 / Doors",
        "title": "A warmer welcome starts at the door.",
-       "detail": "ProVia entry and patio doors: material, glass, hardware and the right configuration."
+       "detail": "ProVia entry and patio doors: material, glass, hardware and the right configuration.",
+       "more": {
+        "href": "/doors",
+        "label": "More about doors"
+       }
       }
      ],
      "title": "What could feel better about your home?",
      "eyebrow": "Start with what you’re noticing",
-     "subtitle": "You don’t need to know which product to choose. Tell me what you’re noticing. We’ll work through the solution together."
+     "subtitle": "You don’t need to know which product to choose. Tell me what you’re noticing. We’ll work through the solution together.",
+     "links": [
+      {
+       "href": "/gutters",
+       "label": "Gutters"
+      },
+      {
+       "href": "/attic-insulation",
+       "label": "Attic insulation"
+      },
+      {
+       "href": "/decks",
+       "label": "Decks and porticos"
+      },
+      {
+       "href": "/montgomery-county-md",
+       "label": "Montgomery County, MD"
+      }
+     ]
     },
     {
      "link": {
@@ -432,15 +464,15 @@
     {
      "id": "daniel",
      "cta": {
-      "href": "tel:+15712798000",
-      "label": "Call Daniel"
+      "href": "#inspection",
+      "label": "Request a free inspection"
      },
      "dark": true,
      "text": "With 10+ years in construction, I help homeowners connect what they’re noticing with the improvements their home may need. I’ll listen, explain your options in plain language, and help you compare materials and scope, so you understand the recommendation before making a decision.",
      "type": "split",
      "image": {
       "alt": "Illustrated portrait of Daniel Refundini",
-      "src": "/images/05a40ddf-716c-4f96-b806-b008d8aed937.png",
+      "src": "/images/daniel-refundini-portrait.webp",
       "zoom": 100,
       "shape": "square",
       "position": "51% 13%"
@@ -565,14 +597,13 @@
      "title": "Good questions. Clear answers."
     },
     {
-     "text": "Answer a few quick questions, see what your project usually costs in the DMV, then book a free inspection for your exact price.",
+     "text": "Answer a few quick questions, see what your project usually costs in the DMV, then request a free inspection for your exact price.",
      "type": "estimator",
      "email": "danielrefundini.exteriors@gmail.com",
-     "phone": "(571) 279-8000",
-     "title": "Know your price range before anyone calls.",
+     "title": "See your price range, then request a free inspection.",
      "bullets": [
       "See a price range in about 60 seconds",
-      "Book a free inspection or a quick call",
+      "Request a free inspection or a quick call",
       "Exact written price, no pressure"
      ],
      "eyebrow": "Let’s start with your home",
@@ -581,7 +612,7 @@
     },
     {
      "type": "footer",
-     "about": "Remodeling Consultant at Presidential Exteriors. Windows, roofing, siding and doors for homeowners in the DMV.",
+     "about": "Remodeling Consultant at Presidential Exteriors. Windows, roofing, siding, doors, gutters, attic insulation and decks for homeowners in the DMV.",
      "areas": [
       "Maryland",
       "Washington, DC",
@@ -596,17 +627,55 @@
        "label": "Presidential Exteriors"
       }
      ],
-     "phone": "(571) 279-8000",
      "licenses": "MD Home Improvement #133021 · VA Class A #2705158030",
-     "instagram": "https://www.instagram.com/daniel.exteriors/"
+     "instagram": "https://www.instagram.com/daniel.exteriors/",
+     "services": [
+      {
+       "href": "/windows",
+       "label": "Windows"
+      },
+      {
+       "href": "/roofing",
+       "label": "Roofing"
+      },
+      {
+       "href": "/siding",
+       "label": "Siding"
+      },
+      {
+       "href": "/doors",
+       "label": "Doors"
+      },
+      {
+       "href": "/gutters",
+       "label": "Gutters"
+      },
+      {
+       "href": "/attic-insulation",
+       "label": "Attic insulation"
+      },
+      {
+       "href": "/decks",
+       "label": "Decks"
+      }
+     ],
+     "areasLink": {
+      "href": "/montgomery-county-md",
+      "label": "Montgomery County, MD"
+     },
+     "legalLinks": [
+      {
+       "href": "/privacy",
+       "label": "Privacy policy"
+      }
+     ]
     },
     {
      "cta": {
       "href": "#inspection",
       "label": "Free inspection"
      },
-     "type": "mobileBar",
-     "phone": "(571) 279-8000"
+     "type": "mobileBar"
     }
    ]
   }
@@ -632,7 +701,7 @@
   },
   "radius": "10px",
   "buttonRadius": "6px",
-  "headingWeight": 700
+  "headingWeight": 800
  },
  "template": "custom"
 }

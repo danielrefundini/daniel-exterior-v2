@@ -1,0 +1,70 @@
+/* Service pages, Montgomery County page and privacy policy. Brand tokens come from the theme (navy, gold, soft gray). */
+
+.p-draft { margin: 0; padding: 8px 16px; text-align: center; font-size: 0.82rem; font-weight: 700; letter-spacing: .04em; background: var(--s-primary); color: var(--s-on-primary); }
+
+.p-crumbs { font-size: 0.85rem; color: var(--s-muted); margin: 0 0 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+.p-crumbs a { color: var(--s-text); font-weight: 600; border-bottom: 1px solid color-mix(in srgb, var(--s-text) 30%, transparent); }
+
+.p-hero { padding: 48px 0 64px; background: var(--s-surface); }
+.p-hero-grid { display: grid; gap: 36px; align-items: center; }
+.p-h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+.p-hero-figure { margin: 0; }
+.p-hero-photo { position: relative; aspect-ratio: 4 / 3; border-radius: var(--s-radius); overflow: hidden; background: color-mix(in srgb, var(--s-text) 8%, transparent); box-shadow: 0 30px 60px -34px rgba(0,0,0,.45); }
+.p-hero-photo img { object-fit: cover; }
+.p-hero-figure figcaption { display: block; }
+.p-hero-figure figcaption svg { display: inline; vertical-align: -2px; }
+.p-hero-figure figcaption a { color: var(--s-text); text-decoration: underline; text-underline-offset: 3px; }
+
+.p-two { display: grid; gap: 40px; }
+.p-body { color: var(--s-muted); font-size: 1.05rem; line-height: 1.7; margin: 0 0 16px; }
+
+.p-options { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+.p-option { background: var(--s-bg); border-radius: var(--s-radius); padding: 24px; border: 1px solid color-mix(in srgb, var(--s-text) 10%, transparent); }
+.p-option .s-h3 { margin: 0 0 8px; }
+.p-option p { margin: 0; }
+
+.p-creds { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 18px; }
+.p-creds li { display: flex; gap: 14px; align-items: flex-start; }
+.p-creds svg { color: var(--s-accent); flex-shrink: 0; margin-top: 4px; }
+.p-creds .s-h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.p-creds p { margin: 0; }
+.s-fine a { color: var(--s-text); text-decoration: underline; text-underline-offset: 3px; }
+
+.p-note { text-align: center; color: var(--s-muted); font-size: 0.92rem; margin: 28px auto 0; max-width: 680px; }
+.p-note a { color: var(--s-text); text-decoration: underline; text-underline-offset: 3px; }
+
+.p-links-title { text-align: center; margin-bottom: 28px; }
+.p-link-cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.p-link-card { display: grid; gap: 6px; height: 100%; padding: 22px; border-radius: var(--s-radius); background: var(--s-surface); color: var(--s-text); border: 1px solid transparent; transition: border-color .2s, transform .2s; }
+.p-link-card:hover { border-color: var(--s-primary); transform: translateY(-2px); }
+.p-link-card strong { font-family: var(--s-font-heading); font-weight: 800; font-size: 1.1rem; }
+.p-link-card > span { color: var(--s-muted); font-size: 0.95rem; }
+.p-link-card .p-link-more { color: var(--s-text); font-weight: 700; font-size: 0.88rem; display: inline-flex; gap: 6px; align-items: center; margin-top: 4px; }
+
+.p-area-link { padding: 0 0 56px; }
+.p-area-link a { color: var(--s-text); font-weight: 700; border-bottom: 2px solid var(--s-primary); }
+
+.p-cta .s-lead { color: color-mix(in srgb, var(--s-on-dark) 80%, transparent); margin-bottom: 20px; }
+
+.p-communities { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+.p-communities li { display: inline-flex; gap: 6px; align-items: center; padding: 9px 16px; border-radius: 999px; background: var(--s-surface); font-weight: 700; }
+.p-communities svg { color: var(--s-accent); }
+
+.p-text { line-height: 1.7; }
+.p-text .s-h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); margin: 36px 0 10px; }
+.p-text p, .p-text li { color: var(--s-muted); }
+.p-text ul { padding-left: 20px; display: grid; gap: 6px; }
+.p-text a { color: var(--s-text); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (min-width: 700px) {
+  .p-options { grid-template-columns: repeat(2, 1fr); }
+  .p-link-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .p-hero { padding: 64px 0 80px; }
+  .p-hero-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; }
+  .p-hero-grid.no-image { grid-template-columns: minmax(0, 780px); }
+  .p-two { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .p-options { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .p-link-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}

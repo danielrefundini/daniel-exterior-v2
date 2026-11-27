@@ -53,8 +53,9 @@ export type Section =
       eyebrow?: string;
       title: string;
       subtitle?: string;
-      items: { title: string; text: string; image?: Img; icon?: string; price?: string; label?: string; detail?: string; cta?: Cta }[];
+      items: { title: string; text: string; image?: Img; icon?: string; price?: string; label?: string; detail?: string; cta?: Cta; more?: Cta }[];
       note?: string; // frase abaixo dos cartões
+      links?: Cta[]; // links abaixo da frase (páginas de serviço)
     }
   | { type: "beforeAfter"; eyebrow?: string; title: string; subtitle?: string; before: Img; after: Img; caption?: string }
   | { type: "steps"; eyebrow?: string; title: string; items: { title: string; text: string }[] }
@@ -90,14 +91,17 @@ export type Section =
       brand: string;
       about: string;
       address?: string;
-      phone: string;
+      phone?: string; // Daniel: sem telefone público no site
       email?: string;
       instagram?: string; // link do perfil (https://www.instagram.com/usuario/)
       hours?: string[];
       areas?: string[];
+      areasLink?: Cta; // página da área de atendimento
+      services?: Cta[]; // coluna com as páginas de serviço
       licenses?: string;
       links?: Cta[];
       legal?: string; // letras miúdas no rodapé
+      legalLinks?: Cta[]; // política de privacidade etc.
     }
   | { type: "marquee"; items: string[] }
   | { type: "credentials"; title: string; items: { title: string; text: string; href?: string }[] }
@@ -160,7 +164,7 @@ export type Section =
       formspree?: string; // opcional: também manda o pedido por e-mail via Formspree
       forwardTo?: string; // opcional: também manda uma cópia do pedido para outro CRM (link de entrada de formulário)
     }
-  | { type: "mobileBar"; phone: string; cta: Cta }
+  | { type: "mobileBar"; phone?: string; cta: Cta }
   // ─── Blocos de funil ───
   | { type: "funnelHeader"; brand: string; phone?: string; note?: string }
   | {

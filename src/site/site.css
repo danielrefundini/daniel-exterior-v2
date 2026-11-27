@@ -159,7 +159,7 @@
 .s-checks { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; }
 .s-checks li { display: flex; gap: 10px; align-items: flex-start; }
 .s-checks svg { color: var(--s-primary); flex-shrink: 0; margin-top: 3px; }
-.s-signature { font-family: var(--s-font-heading); font-style: italic; font-size: 1.15rem; color: var(--s-accent); margin: 0 0 20px; }
+.s-signature { font-family: var(--s-font-heading); font-style: normal; font-size: 1.15rem; color: var(--s-accent); margin: 0 0 20px; }
 
 /* Oferta */
 .s-offer { display: grid; gap: 24px; align-items: center; padding: 36px; border-radius: var(--s-radius); background: var(--s-surface); border: 1px dashed color-mix(in srgb, var(--s-primary) 55%, transparent); }
@@ -245,7 +245,7 @@
   .s-gallery { grid-template-columns: repeat(4, 1fr); }
   .s-offer { grid-template-columns: 1.6fr 1fr; padding: 44px 48px; }
   .s-offer-side { justify-items: end; }
-  .s-footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .s-footer-grid { grid-template-columns: 1.4fr 1fr 0.8fr 1fr 1fr; }
 }
 @media (min-width: 900px) {
   .s-nav, .s-header-phone { display: flex; }

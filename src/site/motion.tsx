@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CRM } from "../crm";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -101,17 +102,24 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
   );
 }
 
-/** Número que conta até o valor final quando aparece. */
+/**
+ * Número que conta até o valor final quando aparece.
+ * O HTML do servidor já traz o valor real (é o que o Google lê). No navegador, se o número ainda está
+ * fora da tela, ele volta a 0 e conta quando aparece. Se já está na tela, fica parado no valor real.
+ */
 export function Counter({ value, prefix = "", suffix = "", decimals: fixed }: { value: number; prefix?: string; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(value);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) return; // already visible: keep the real value
+    setN(0);
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       io.disconnect();
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return setN(value);
       const start = performance.now();
       const duration = 1400;
       const tick = (t: number) => {
@@ -139,11 +147,10 @@ export function BeforeAfter({ before, after, beforeAlt, afterAlt }: { before: st
   const [pos, setPos] = useState(50);
   return (
     <div className="s-ba">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={after} alt={afterAlt} className="s-ba-img" draggable={false} />
+      {/* Through the image optimizer (resized WebP with srcset), not the raw 1600px source. Lazy: it is below the fold. */}
+      <Image src={after} alt={afterAlt} className="s-ba-img" draggable={false} fill sizes="(max-width: 900px) 100vw, 820px" />
       <div className="s-ba-clip" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={before} alt={beforeAlt} className="s-ba-img" draggable={false} />
+        <Image src={before} alt={beforeAlt} className="s-ba-img" draggable={false} fill sizes="(max-width: 900px) 100vw, 820px" />
       </div>
       <span className="s-ba-label s-ba-label-l">Before</span>
       <span className="s-ba-label s-ba-label-r">After</span>
@@ -503,7 +510,7 @@ export function LeadForm({
       <button type="submit" className="s-btn s-btn-primary s-btn-block s-btn-lg" disabled={state === "sending"}>
         {state === "sending" ? "Sending…" : button}
       </button>
-      {state === "error" && <p className="s-form-error" role="alert">Something went wrong. Please try again or call us.</p>}
+      {state === "error" && <p className="s-form-error" role="alert">Something went wrong. Please try again.</p>}
       {note && <p className="s-form-note">{note}</p>}
     </form>
   );

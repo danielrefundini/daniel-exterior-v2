@@ -193,3 +193,15 @@
 
 /* Formulário: campo que sobra sozinho na última linha ocupa a largura toda */
 .s-lead-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+/* Links to the service pages, footer link lists, privacy link */
+.s-card-more { display: block; width: fit-content; margin-top: 10px; font-weight: 700; font-size: 0.9rem; color: var(--s-text); border-bottom: 2px solid var(--s-primary); padding-bottom: 2px; }
+.s-pill-links { list-style: none; padding: 0; margin: 18px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.s-pill-links a { display: inline-block; padding: 9px 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--s-text) 18%, transparent); font-weight: 600; font-size: 0.92rem; color: var(--s-text); background: var(--s-bg); }
+.s-pill-links a:hover { border-color: var(--s-primary); background: color-mix(in srgb, var(--s-primary) 14%, transparent); }
+.s-footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.s-footer-links a, .s-footer-muted a { color: inherit; opacity: .85; }
+.s-footer-links a:hover, .s-footer-muted a:hover, .s-footer-legal a:hover { color: var(--s-accent-dark); opacity: 1; }
+.s-footer-legal { display: inline-flex; gap: 16px; }
+.s-footer-legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.s-mobile-bar.is-single { grid-template-columns: 1fr; }
